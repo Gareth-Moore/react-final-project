@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { ListIcon, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/Md";
+import useFetchGames from "../hooks/useFetchGames";
 
 interface Game {
   id: number;
@@ -14,18 +15,7 @@ interface FetchGamesResponse {
 }
 
 const GamesGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [errors, setErrors] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => {
-        setGames(res.data.results);
-        console.log(res.data.results);
-      })
-      .catch((err) => setErrors(err.message));
-  }, []);
+  const { games, setGames, errors, setErrors, fetchGames } = useFetchGames();
 
   return (
     <>
