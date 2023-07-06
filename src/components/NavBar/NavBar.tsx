@@ -1,6 +1,6 @@
 import { HStack, Image, Show, Text } from "@chakra-ui/react";
-import logo from "../assets/logo.webp";
-import ToggleTheme from "./NavBar/ToggleTheme";
+import logo from "../../assets/logo.webp";
+import ToggleTheme from "./ToggleTheme";
 
 const NavBar = () => {
   return (
