@@ -1,13 +1,15 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
-import logo from "./assets/logo.webp";
+import GamesGrid from "./components/GamesGrid";
 
 function App() {
   return (
     <Grid
       templateAreas={{ base: `'nav' 'main'`, lg: `'nav nav' 'aside main'` }}
+      paddingX={{ base: ".25rem", lg: ".5rem" }}
+      paddingY={{ base: ".125rem", lg: ".25rem" }}
     >
-      <GridItem area={"nav"} background={"coral"}>
+      <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
       <Show above="lg">
@@ -15,8 +17,8 @@ function App() {
           Aside
         </GridItem>
       </Show>
-      <GridItem area={"main"} background={"dodgerblue"}>
-        Main
+      <GridItem area={"main"}>
+        <GamesGrid />
       </GridItem>
     </Grid>
   );
