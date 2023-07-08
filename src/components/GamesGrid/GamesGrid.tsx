@@ -2,6 +2,7 @@ import { SimpleGrid, Text } from "@chakra-ui/react";
 import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "./GameCard/GameCard";
 import GameCardSkeleton from "./GameCard/GameCardSkeleton";
+import GameCardContainer from "./GameCard/GameCardContainer";
 
 const GamesGrid = () => {
   const { games, errors, refetchGames, isLoading } = useFetchGames();
@@ -18,10 +19,16 @@ const GamesGrid = () => {
         justifyContent={"center"}
       >
         {true &&
-          gameCardSkeletonKeys.map((value) => <GameCardSkeleton key={value} />)}
+          gameCardSkeletonKeys.map((value) => (
+            <GameCardContainer>
+              <GameCardSkeleton key={value} />
+            </GameCardContainer>
+          ))}
         {games &&
           games.map((value) => (
-            <GameCard key={value.id} game={value}></GameCard>
+            <GameCardContainer>
+              <GameCard key={value.id} game={value}></GameCard>
+            </GameCardContainer>
           ))}
       </SimpleGrid>
     </>
