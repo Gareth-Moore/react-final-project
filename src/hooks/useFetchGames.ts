@@ -7,13 +7,15 @@ const useFetchGames = () => {
   const [errors, setErrors] = useState("");
 
   function fetchGames() {
-    apiClient
-      .get<FetchGamesResponse>("/games")
-      .then((res) => {
-        setGames(res.data.results);
-        console.log(res.data.results);
-      })
-      .catch((err) => setErrors(err.message));
+    if (prompt("type anything to run API")) {
+      console.log("api called");
+      apiClient
+        .get<FetchGamesResponse>("/games")
+        .then((res) => {
+          setGames(res.data.results);
+        })
+        .catch((err) => setErrors(err.message));
+    }
   }
   useEffect(() => {
     fetchGames();

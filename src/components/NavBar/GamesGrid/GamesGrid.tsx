@@ -11,9 +11,10 @@ const GamesGrid = () => {
       {errors && <Text>{errors}</Text>}
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
-        spacing={10}
+        maxWidth={{ base: 350, md: 720, lg: 1090 }}
+        spacing={"20px"}
         mx={"auto"}
-        placeItems={"center"}
+        justifyContent={"center"}
       >
         {games &&
           games.map((value) => (
