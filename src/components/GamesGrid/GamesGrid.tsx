@@ -1,10 +1,11 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import { MdCheckCircle } from "react-icons/Md";
 import useFetchGames from "../../hooks/useFetchGames";
-import GameCard from "./GameCard";
+import GameCard from "./GameCard/GameCard";
+import GameCardSkeleton from "./GameCard/GameCardSkeleton";
 
 const GamesGrid = () => {
-  const { games, setGames, errors, setErrors, fetchGames } = useFetchGames();
+  const { games, errors, refetchGames, isLoading } = useFetchGames();
+  const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <>
@@ -16,6 +17,8 @@ const GamesGrid = () => {
         mx={"auto"}
         justifyContent={"center"}
       >
+        {true &&
+          gameCardSkeletonKeys.map((value) => <GameCardSkeleton key={value} />)}
         {games &&
           games.map((value) => (
             <GameCard key={value.id} game={value}></GameCard>
