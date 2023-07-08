@@ -1,6 +1,6 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import { MdCheckCircle } from "react-icons/Md";
-import useFetchGames from "../../../hooks/useFetchGames";
+import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "./GameCard";
 
 const GamesGrid = () => {
