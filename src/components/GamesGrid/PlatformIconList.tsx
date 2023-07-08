@@ -45,7 +45,7 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   return (
-    <HStack py={2}>
+    <HStack py={2} wrap={"wrap"}>
       {platforms.map((platform) => (
         <Icon
           key={platform.slug}
