@@ -18,7 +18,7 @@ const GamesGrid = () => {
         mx={"auto"}
         justifyContent={"center"}
       >
-        {true &&
+        {isLoading &&
           gameCardSkeletonKeys.map((value) => (
             <GameCardContainer>
               <GameCardSkeleton key={value} />
