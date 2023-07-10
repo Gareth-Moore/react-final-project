@@ -1,10 +1,16 @@
 import { HStack, List, ListItem, Text } from "@chakra-ui/layout";
 import useFetchGenres from "../../hooks/useFetchGenres";
-import { Image } from "@chakra-ui/react";
+import { Image, Spinner } from "@chakra-ui/react";
 import getCroppedImage from "../../services/crop-image";
 
 const GenreList = () => {
   const { genres, errors, isLoading } = useFetchGenres();
+
+  if (isLoading) return <Spinner></Spinner>;
+
+  // if error, don't display anything to keep screen clutter down
+  if (errors) return null;
+
   return (
     <List>
       {genres &&
