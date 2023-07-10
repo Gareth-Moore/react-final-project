@@ -6,12 +6,14 @@ import {
   MenuItem,
   MenuList,
 } from "@chakra-ui/react";
-import React from "react";
 import { BsChevronDown } from "react-icons/bs";
 import useFetchPlatforms from "../../hooks/useFetchPlatforms";
 
 const PlatformSelector = () => {
-  const { platforms, isLoading, errors } = useFetchPlatforms();
+  const { platforms, errors } = useFetchPlatforms();
+
+  if (errors) return null;
+
   return (
     <Flex justifyContent={{ base: "center", lg: "start" }} mb={5}>
       <Menu>
