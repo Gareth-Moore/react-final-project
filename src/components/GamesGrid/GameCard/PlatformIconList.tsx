@@ -9,10 +9,10 @@ import {
 import { SiNintendo } from "react-icons/si";
 import { MdPhoneIphone } from "react-icons/Md";
 import { BsGlobe } from "react-icons/bs";
-import { Platform } from "../../types/interfaces";
 import { HStack, Text } from "@chakra-ui/layout";
 import { IconType } from "react-icons";
 import { Icon, keyframes } from "@chakra-ui/react";
+import { Platform } from "../../../types/interfaces";
 
 interface Props {
   platforms: Platform[];

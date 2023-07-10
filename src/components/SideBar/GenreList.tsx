@@ -1,9 +1,14 @@
 import { HStack, List, ListItem, Text } from "@chakra-ui/layout";
 import useFetchGenres from "../../hooks/useFetchGenres";
-import { Image, Spinner } from "@chakra-ui/react";
+import { Button, Image, Spinner } from "@chakra-ui/react";
 import getCroppedImage from "../../services/crop-image";
+import { Genre } from "../../types/interfaces";
 
-const GenreList = () => {
+interface Props {
+  updateSelectedGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ updateSelectedGenre }: Props) => {
   const { genres, errors, isLoading } = useFetchGenres();
 
   if (isLoading) return <Spinner></Spinner>;
@@ -23,7 +28,14 @@ const GenreList = () => {
                 boxSize={"48px"}
                 borderRadius={"1rem"}
               />
-              <Text>{value.name}</Text>
+              <Button
+                onClick={() => updateSelectedGenre(value)}
+                variant={"link"}
+                className="button-scale"
+                overflow={"hidden"}
+              >
+                {value.name}
+              </Button>
             </HStack>
           </ListItem>
         ))}

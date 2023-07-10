@@ -6,7 +6,11 @@ import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
   styles: {
-    global: {},
+    global: {
+      ".button-scale:hover": {
+        transform: "scale(1.1)",
+      },
+    },
   },
 });
 

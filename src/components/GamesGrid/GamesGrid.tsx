@@ -3,9 +3,14 @@ import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "./GameCard/GameCard";
 import GameCardSkeleton from "./GameCard/GameCardSkeleton";
 import GameCardContainer from "./GameCard/GameCardContainer";
+import { Genre } from "../../types/interfaces";
 
-const GamesGrid = () => {
-  const { games, errors, isLoading } = useFetchGames();
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const GamesGrid = ({ selectedGenre }: Props) => {
+  const { games, errors, isLoading } = useFetchGames(selectedGenre);
   const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
@@ -20,14 +25,14 @@ const GamesGrid = () => {
       >
         {isLoading &&
           gameCardSkeletonKeys.map((value) => (
-            <GameCardContainer>
-              <GameCardSkeleton key={value} />
+            <GameCardContainer key={value}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
         {games &&
           games.map((value) => (
-            <GameCardContainer>
-              <GameCard key={value.id} game={value}></GameCard>
+            <GameCardContainer key={value.id}>
+              <GameCard game={value}></GameCard>
             </GameCardContainer>
           ))}
       </SimpleGrid>

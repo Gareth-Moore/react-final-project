@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { FetchResponse } from "../types/interfaces";
+import { AxiosRequestConfig } from "axios";
 
-function useFetchData<T>(endpoint: string) {
+//! AxiosRequestConfig is adding a search parameter (as passed from useFetchGames.ts)
+//* See dependencies below (useEffect dependencies) // deps for short
+function useFetchData<T>(
+  endpoint: string,
+  requestConfig?: AxiosRequestConfig,
+  dependencies?: any[] | null
+) {
   const [data, setData] = useState<T[]>([]);
   const [errors, setErrors] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +19,8 @@ function useFetchData<T>(endpoint: string) {
       console.log("api called");
       setIsLoading(true);
       apiClient
-        .get<FetchResponse<T>>(endpoint)
+        // adding the query parameters {...requestConfig}
+        .get<FetchResponse<T>>(endpoint, { ...requestConfig })
         .then((res) => {
           setData(res.data.results);
           setIsLoading(false);
@@ -24,9 +32,12 @@ function useFetchData<T>(endpoint: string) {
     }
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useEffect(
+    () => {
+      fetchData();
+    },
+    dependencies ? [...dependencies] : []
+  );
 
   return { data, errors, refetchData: fetchData, isLoading };
 }
