@@ -6,9 +6,10 @@ import { Genre } from "../../types/interfaces";
 
 interface Props {
   updateSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ updateSelectedGenre }: Props) => {
+const GenreList = ({ updateSelectedGenre, selectedGenre }: Props) => {
   const { genres, errors, isLoading } = useFetchGenres();
 
   if (isLoading) return <Spinner></Spinner>;
@@ -33,6 +34,9 @@ const GenreList = ({ updateSelectedGenre }: Props) => {
                 variant={"link"}
                 className="button-scale"
                 overflow={"hidden"}
+                fontWeight={
+                  selectedGenre?.slug === value.slug ? "bold" : "normal"
+                }
               >
                 {value.name}
               </Button>
