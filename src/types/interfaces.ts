@@ -12,10 +12,11 @@ export interface Game {
   metacritic: number;
 }
 
-export interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
+//# removed and replaced with FetchReponse
+//# export interface FetchGamesResponse {
+//#   count: number;
+//#   results: Game[];
+//# }
 
 export interface Genre {
   id: number;
@@ -25,7 +26,15 @@ export interface Genre {
   image_background: string;
 }
 
-export interface FetchGenresResponse {
+//# removed and replaced with FetchReponse
+//# export interface FetchGenresResponse {
+//#   count: number;
+//#   results: Genre[];
+//# }
+
+// fyi by putting in <T> you are basically passing a parameter when you
+// call the interface. As in FetchResponse<Game>, or FetchResponse<Genre>
+export interface FetchResponse<T> {
   count: number;
-  results: Genre[];
+  results: T[];
 }

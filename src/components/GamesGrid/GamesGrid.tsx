@@ -5,7 +5,7 @@ import GameCardSkeleton from "./GameCard/GameCardSkeleton";
 import GameCardContainer from "./GameCard/GameCardContainer";
 
 const GamesGrid = () => {
-  const { games, errors, refetchGames, isLoading } = useFetchGames();
+  const { games, errors, isLoading } = useFetchGames();
   const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
