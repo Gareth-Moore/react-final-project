@@ -31,7 +31,7 @@ function useFetchData<T>(
 
   useEffect(
     () => {
-      // fetchData();
+      fetchData();
     },
     dependencies ? [...dependencies] : []
   );
