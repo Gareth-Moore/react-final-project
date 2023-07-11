@@ -42,4 +42,5 @@ export interface FetchResponse<T> {
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  ordering: string;
 }

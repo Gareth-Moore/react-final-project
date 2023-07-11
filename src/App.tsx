@@ -16,6 +16,7 @@ function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({
     genre: null,
     platform: null,
+    ordering: "",
   });
   //* alternatively
   //# Initialize it 'as GameQuery' which i THINK isn't as good as genre/platform are initialized as 'undefined' not 'null'
@@ -45,12 +46,17 @@ function App() {
       <GridItem area={"main"}>
         <HStack justifyContent={{ base: "center", lg: "start" }} mb={5} gap={2}>
           <PlatformSelector
-            selectedPlatform={gameQuery.platform}
+            gameQuery={gameQuery}
             updateSelectedPlatform={(platform) =>
               setGameQuery({ ...gameQuery, platform })
             }
           />
-          <SortSelector></SortSelector>
+          <SortSelector
+            gameQuery={gameQuery}
+            updateSelectSortOrder={(order) =>
+              setGameQuery({ ...gameQuery, ordering: order })
+            }
+          ></SortSelector>
         </HStack>
         <GamesGrid gameQuery={gameQuery} />
       </GridItem>

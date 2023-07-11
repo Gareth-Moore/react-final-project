@@ -15,26 +15,23 @@ function useFetchData<T>(
   const [isLoading, setIsLoading] = useState(false);
 
   function fetchData() {
-    if (prompt("type anything to run API")) {
-      console.log("api called");
-      setIsLoading(true);
-      apiClient
-        // adding the query parameters {...requestConfig}
-        .get<FetchResponse<T>>(endpoint, { ...requestConfig })
-        .then((res) => {
-          setData(res.data.results);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          setErrors(err.message);
-          setIsLoading(false);
-        });
-    }
+    setIsLoading(true);
+    apiClient
+      // adding the query parameters {...requestConfig}
+      .get<FetchResponse<T>>(endpoint, { ...requestConfig })
+      .then((res) => {
+        setData(res.data.results);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setErrors(err.message);
+        setIsLoading(false);
+      });
   }
 
   useEffect(
     () => {
-      fetchData();
+      // fetchData();
     },
     dependencies ? [...dependencies] : []
   );
