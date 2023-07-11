@@ -1,6 +1,7 @@
 import { HStack, Image, Show, Text } from "@chakra-ui/react";
 import logo from "../../assets/logo.webp";
 import ToggleTheme from "./ToggleTheme";
+import SearchInput from "./SearchInput";
 
 const NavBar = () => {
   return (
@@ -10,7 +11,7 @@ const NavBar = () => {
       marginInline={"auto"}
     >
       <Image src={logo} boxSize="60px" />
-      <Text>Navigation Bar</Text>
+      <SearchInput />
       <Show above="sm">
         <ToggleTheme />
       </Show>

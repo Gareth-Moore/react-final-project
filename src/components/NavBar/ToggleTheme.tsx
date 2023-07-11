@@ -11,7 +11,7 @@ const ToggleTheme = () => {
         onChange={toggleColorMode}
         colorScheme={"blue"}
       />
-      <Text paddingRight=".5rem">
+      <Text paddingRight=".5rem" whiteSpace={"nowrap"}>
         {colorMode.slice(0, 1).toUpperCase() + colorMode.slice(1) + " Mode"}
       </Text>
     </HStack>
