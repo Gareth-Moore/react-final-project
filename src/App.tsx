@@ -17,6 +17,7 @@ function App() {
     genre: null,
     platform: null,
     ordering: "",
+    searchText: null,
   });
   //* alternatively
   //# Initialize it 'as GameQuery' which i THINK isn't as good as genre/platform are initialized as 'undefined' not 'null'
@@ -30,7 +31,11 @@ function App() {
       paddingY={{ base: ".125rem", lg: ".25rem" }}
     >
       <GridItem area={"nav"} marginBottom={10}>
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) =>
+            setGameQuery({ ...gameQuery, searchText: searchText })
+          }
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>

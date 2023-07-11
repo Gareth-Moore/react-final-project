@@ -10,6 +10,7 @@ const useFetchGames = (gameQuery: GameQuery) => {
         genres: gameQuery.genre?.id,
         parent_platforms: gameQuery.platform?.id,
         ordering: gameQuery.ordering,
+        search: gameQuery.searchText,
       },
     },
     //# passing selected genre as array as 'dependencies' is expecting any[]

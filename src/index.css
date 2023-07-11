@@ -1,0 +1,4 @@
+/* form used inside NavBar needs to be 100% */
+form {
+  width: 100%;
+}

@@ -3,7 +3,11 @@ import logo from "../../assets/logo.webp";
 import ToggleTheme from "./ToggleTheme";
 import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack
       justifyContent={"space-between"}
@@ -11,7 +15,7 @@ const NavBar = () => {
       marginInline={"auto"}
     >
       <Image src={logo} boxSize="60px" />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <Show above="sm">
         <ToggleTheme />
       </Show>
