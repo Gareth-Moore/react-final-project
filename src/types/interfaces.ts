@@ -38,3 +38,8 @@ export interface FetchResponse<T> {
   count: number;
   results: T[];
 }
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}

@@ -3,18 +3,14 @@ import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "./GameCard/GameCard";
 import GameCardSkeleton from "./GameCard/GameCardSkeleton";
 import GameCardContainer from "./GameCard/GameCardContainer";
-import { Genre, Platform } from "../../types/interfaces";
+import { GameQuery } from "../../types/interfaces";
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-const GamesGrid = ({ selectedGenre, selectedPlatform }: Props) => {
-  const { games, errors, isLoading } = useFetchGames(
-    selectedGenre,
-    selectedPlatform
-  );
+const GamesGrid = ({ gameQuery }: Props) => {
+  const { games, errors, isLoading } = useFetchGames(gameQuery);
 
   const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (

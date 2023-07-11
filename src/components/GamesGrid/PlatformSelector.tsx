@@ -24,25 +24,21 @@ const PlatformSelector = ({
   if (errors) return null;
 
   return (
-    <Flex justifyContent={{ base: "center", lg: "start" }} mb={5}>
-      <Menu>
-        <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-          {selectedPlatform ? selectedPlatform.name : "Platforms"}
-        </MenuButton>
-        <MenuList>
-          {platforms.map((platform) => {
-            return (
-              <MenuItem
-                key={platform.id}
-                onClick={() => updateSelectedPlatform(platform)}
-              >
-                {platform.name}
-              </MenuItem>
-            );
-          })}
-        </MenuList>
-      </Menu>
-    </Flex>
+    <Menu>
+      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+        {selectedPlatform ? selectedPlatform.name : "Platforms"}
+      </MenuButton>
+      <MenuList>
+        {platforms.map((platform) => (
+          <MenuItem
+            key={platform.id}
+            onClick={() => updateSelectedPlatform(platform)}
+          >
+            {platform.name}
+          </MenuItem>
+        ))}
+      </MenuList>
+    </Menu>
   );
 };
 
