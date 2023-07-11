@@ -7,7 +7,7 @@ import {
   FaAndroid,
 } from "react-icons/fa";
 import { SiNintendo } from "react-icons/si";
-import { MdPhoneIphone } from "react-icons/Md";
+import { MdPhoneIphone } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
 import { HStack, Text } from "@chakra-ui/layout";
 import { IconType } from "react-icons";
