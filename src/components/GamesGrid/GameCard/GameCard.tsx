@@ -4,6 +4,7 @@ import PlatformIconList from "./PlatformIconList";
 import { HStack } from "@chakra-ui/layout";
 import CriticScore from "./CriticScore";
 import getCroppedImage from "../../../services/crop-image";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -18,7 +19,10 @@ const GameCard = ({ game }: Props) => {
         objectFit={"cover"}
       />
       <CardBody padding={2}>
-        <Heading fontSize={"lg"}>{game.name}</Heading>
+        <Heading fontSize={"lg"}>
+          {game.name}
+          <Emoji rating={game.rating_top} />
+        </Heading>
         <HStack justifyContent={"space-between"} wrap={"wrap"}>
           <PlatformIconList platforms={game.platforms.map((p) => p.platform)} />
           <CriticScore criticScore={game.metacritic} />

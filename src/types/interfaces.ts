@@ -10,6 +10,7 @@ export interface Game {
   background_image: string;
   platforms: { platform: Platform }[];
   metacritic: number;
+  rating_top: number;
 }
 
 //# removed and replaced with FetchReponse
