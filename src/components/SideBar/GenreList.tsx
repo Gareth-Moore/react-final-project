@@ -10,7 +10,7 @@ interface Props {
 }
 
 const GenreList = ({ updateSelectedGenre, selectedGenre }: Props) => {
-  const { genres, errors, isLoading } = useFetchGenres();
+  const { data: genres, errors, isLoading } = useFetchGenres();
 
   if (isLoading) return <Spinner></Spinner>;
 
