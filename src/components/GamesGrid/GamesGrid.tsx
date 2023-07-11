@@ -3,16 +3,20 @@ import useFetchGames from "../../hooks/useFetchGames";
 import GameCard from "./GameCard/GameCard";
 import GameCardSkeleton from "./GameCard/GameCardSkeleton";
 import GameCardContainer from "./GameCard/GameCardContainer";
-import { Genre } from "../../types/interfaces";
+import { Genre, Platform } from "../../types/interfaces";
 
 interface Props {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const GamesGrid = ({ selectedGenre }: Props) => {
-  const { games, errors, isLoading } = useFetchGames(selectedGenre);
-  const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const GamesGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+  const { games, errors, isLoading } = useFetchGames(
+    selectedGenre,
+    selectedPlatform
+  );
 
+  const gameCardSkeletonKeys = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <>
       {errors && <Text>{errors}</Text>}
@@ -30,9 +34,9 @@ const GamesGrid = ({ selectedGenre }: Props) => {
             </GameCardContainer>
           ))}
         {games &&
-          games.map((value) => (
-            <GameCardContainer key={value.id}>
-              <GameCard game={value}></GameCard>
+          games.map((game) => (
+            <GameCardContainer key={game.id}>
+              <GameCard game={game}></GameCard>
             </GameCardContainer>
           ))}
       </SimpleGrid>
