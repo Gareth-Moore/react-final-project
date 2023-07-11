@@ -31,7 +31,7 @@ function App() {
       paddingX={{ base: ".25rem", lg: ".5rem" }}
       paddingY={{ base: ".125rem", lg: ".25rem" }}
     >
-      <GridItem area={"nav"} marginBottom={10}>
+      <GridItem area={"nav"}>
         <NavBar
           onSearch={(searchText) =>
             setGameQuery({ ...gameQuery, searchText: searchText })
@@ -39,8 +39,7 @@ function App() {
         />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} paddingX={5}>
-          <Heading marginBottom={5}>Genres:</Heading>
+        <GridItem area={"aside"} marginTop={3}>
           <GenreList
             updateSelectedGenre={(genre) =>
               setGameQuery({ ...gameQuery, genre })
@@ -49,7 +48,7 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem area={"main"}>
+      <GridItem area={"main"} marginTop={10}>
         <Box marginBottom={5}>
           <GameHeading gameQuery={gameQuery} />
         </Box>

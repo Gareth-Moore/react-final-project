@@ -9,11 +9,7 @@ interface Props {
 
 const NavBar = ({ onSearch }: Props) => {
   return (
-    <HStack
-      justifyContent={"space-between"}
-      width={{ lg: "900px" }}
-      marginInline={"auto"}
-    >
+    <HStack justifyContent={"space-between"} marginInline={"auto"}>
       <Image src={logo} boxSize="60px" />
       <SearchInput onSearch={onSearch} />
       <Show above="sm">

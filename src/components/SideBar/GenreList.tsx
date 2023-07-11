@@ -1,4 +1,4 @@
-import { HStack, List, ListItem, Text } from "@chakra-ui/layout";
+import { HStack, Heading, List, ListItem, Text } from "@chakra-ui/layout";
 import useFetchGenres from "../../hooks/useFetchGenres";
 import { Button, Image, Spinner } from "@chakra-ui/react";
 import getCroppedImage from "../../services/crop-image";
@@ -19,6 +19,9 @@ const GenreList = ({ updateSelectedGenre, selectedGenre }: Props) => {
 
   return (
     <List>
+      <Heading marginBottom={3} fontSize={"2xl"}>
+        Genres
+      </Heading>
       {genres &&
         genres.map((value) => (
           <ListItem key={value.id}>
@@ -28,12 +31,14 @@ const GenreList = ({ updateSelectedGenre, selectedGenre }: Props) => {
                 padding={1}
                 boxSize={"48px"}
                 borderRadius={"1rem"}
+                objectFit={"cover"}
               />
               <Button
                 onClick={() => updateSelectedGenre(value)}
                 variant={"link"}
                 className="button-scale"
-                overflow={"hidden"}
+                whiteSpace={"normal"}
+                textAlign={"left"}
                 fontWeight={
                   selectedGenre?.slug === value.slug ? "bold" : "normal"
                 }

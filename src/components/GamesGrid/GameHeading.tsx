@@ -6,9 +6,8 @@ interface Props {
 }
 
 const GameHeading = ({ gameQuery }: Props) => {
-  console.log(gameQuery.platform?.name);
   return (
-    <Heading as={"h1"}>
+    <Heading as={"h1"} textAlign={{ base: "center", lg: "left" }}>
       {`
       ${gameQuery.platform ? gameQuery.platform.name + " " : ""}
       ${gameQuery.genre ? gameQuery.genre.name + " " : ""}
